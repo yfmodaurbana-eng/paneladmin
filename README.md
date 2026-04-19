@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -120,5 +121,4 @@ function sendWhatsApp(){
 </script>
 
 </body>
-</html># BlackDiamond
-Tienda de moda
+</html>
