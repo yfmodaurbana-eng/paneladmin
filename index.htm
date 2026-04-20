@@ -13,144 +13,129 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   color: white;
-
-  /* 🌌 FONDO GLAMOUR */
   background: radial-gradient(circle at top, #1a1a1a, #000);
 }
 
-/* ✨ EFECTO BRILLO GENERAL */
 body::before {
   content: "";
   position: fixed;
   width: 100%;
   height: 100%;
   background: url("https://i.imgur.com/8QfQ7vF.png");
-  opacity: 0.08;
-  pointer-events: none;
+  opacity: 0.05;
 }
 
-/* 🔝 HEADER */
+/* HEADER */
 header {
   text-align: center;
-  padding: 60px 20px;
+  padding: 40px 15px;
 }
 
 header h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3.8rem;
-  margin: 0;
+  font-size: 2.6rem;
 
-  /* 💎 TEXTO CON EFECTO DIAMANTE */
-  background: linear-gradient(90deg, #ffffff, #d4af37, #ffffff);
+  background: linear-gradient(90deg, #fff, #d4af37, #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  letter-spacing: 6px;
-  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
-/* ✨ SUBTÍTULO */
 header p {
-  color: #aaa;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
+  color: #888;
+  font-size: 0.75rem;
 }
 
-/* 🛍️ SECCIÓN */
+/* SECCIÓN */
 .productos {
-  padding: 60px 20px;
+  padding: 30px 10px;
 }
 
-/* 💎 TITULO CATALOGO */
 .productos h2 {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
 
-  background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+  background: linear-gradient(90deg, #d4af37, #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-/* 🧱 GRID */
+/* GRID MÁS DENSO */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
 }
 
-/* 🧊 TARJETA */
+/* CARD MÁS COMPACTA */
 .card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(212,175,55,0.2);
-  border-radius: 12px;
-  padding: 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 8px;
+  padding: 10px;
   text-align: center;
-  backdrop-filter: blur(6px);
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 20px rgba(212,175,55,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px rgba(212,175,55,0.2);
 }
 
-/* 🖼️ IMG */
+/* IMG MÁS PEQUEÑA (CLAVE) */
 .card img {
   width: 100%;
-  height: 260px;
+  height: 140px; /* 👈 aquí está el cambio importante */
   object-fit: cover;
-  border-radius: 10px;
-}
-
-/* 🏷️ TEXTO */
-.card h3 {
-  margin: 10px 0 5px;
-}
-
-.precio {
-  color: #d4af37;
-  font-size: 1.2rem;
-}
-
-/* 🔽 SELECTS */
-select {
-  width: 100%;
-  margin-top: 8px;
-  padding: 8px;
-  background: black;
-  color: white;
-  border: 1px solid #333;
   border-radius: 6px;
 }
 
-/* 💳 BOTÓN */
+/* TEXTO MÁS FINO */
+.card h3 {
+  font-size: 0.85rem;
+  margin: 6px 0 3px;
+}
+
+.precio {
+  font-size: 0.85rem;
+  color: #d4af37;
+}
+
+/* FORM */
+select {
+  width: 100%;
+  margin-top: 4px;
+  padding: 5px;
+  font-size: 0.75rem;
+  background: black;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+/* BOTÓN */
 .btn {
   width: 100%;
-  margin-top: 12px;
-  padding: 10px;
+  margin-top: 6px;
+  padding: 6px;
+  font-size: 0.75rem;
 
   background: linear-gradient(45deg, #d4af37, #f5d76e);
   border: none;
   color: black;
-  font-weight: bold;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.btn:hover {
-  opacity: 0.85;
-}
-
-/* 🔻 FOOTER */
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
-  color: #777;
-  font-size: 0.9rem;
+  padding: 12px;
+  font-size: 0.75rem;
+  color: #666;
 }
 
 </style>
@@ -170,9 +155,7 @@ footer {
 
     <!-- PRODUCTO -->
     <div class="card">
-
       <img src="https://i.imgur.com/Kb6WlCs.jpeg">
-
       <h3>Camiseta Diamond</h3>
       <p class="precio">35€</p>
 
@@ -190,7 +173,6 @@ footer {
       </select>
 
       <button class="btn">Comprar</button>
-
     </div>
 
   </div>
