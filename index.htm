@@ -4,137 +4,79 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* 💎 FONDO LUJO DIAMANTE */
+/* =========================
+   🌑 FONDO PREMIUM LUJO
+========================= */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  color: white;
 
   background:
-    radial-gradient(circle at 20% 20%, #1a1a1a, transparent 40%),
-    radial-gradient(circle at 80% 30%, #2a1f0a, transparent 45%),
-    radial-gradient(circle at 50% 90%, #0d0d0d, #000);
-
-  color: white;
-  overflow-x: hidden;
+    radial-gradient(circle at 20% 10%, rgba(212,175,55,0.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(212,175,55,0.08), transparent 55%),
+    linear-gradient(180deg, #000 0%, #050505 50%, #000 100%);
 }
 
-/* partículas suaves lujo */
-body::before {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(212,175,55,0.06) 2px, transparent 3px);
-  background-size: 90px 90px;
-  animation: move 25s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes move {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-200px); }
-}
-
-/* 💎 HEADER */
+/* =========================
+   💎 HEADER
+========================= */
 header {
   text-align: center;
-  padding: 100px 20px 50px;
-  position: relative;
+  padding: 70px 20px 35px;
 }
 
-/* glow fondo cabecera */
-header::before {
-  content: "";
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 500px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(255,215,0,0.35), transparent 70%);
-  filter: blur(40px);
-  z-index: 0;
-  animation: aura 6s ease-in-out infinite;
-}
-
-@keyframes aura {
-  0% { opacity: 0.4; transform: translateX(-50%) scale(1); }
-  50% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
-  100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
-}
-
-/* 💎 TITULO PRINCIPAL */
+/* TITULO PRINCIPAL */
 .title-gold {
-  position: relative;
-  z-index: 1;
-
-  font-size: 4.5rem;
-  font-weight: 900;
-  letter-spacing: 10px;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: 6px;
   font-family: 'Playfair Display', serif;
 
-  background: linear-gradient(
-    90deg,
-    #6b4f0f,
-    #ffd700,
-    #fffbe6,
-    #f5d76e,
-    #d4af37,
-    #7a5c12
-  );
-
-  background-size: 400% 400%;
+  background: linear-gradient(90deg,#7a5c12,#ffd700,#fff8dc,#d4af37,#8c6a12);
+  background-size: 300% 300%;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: shine 4s ease-in-out infinite;
+  animation: shine 6s ease-in-out infinite;
 
   text-shadow:
-    0 0 10px rgba(255,215,0,0.35),
-    0 0 25px rgba(255,215,0,0.25),
-    0 0 55px rgba(212,175,55,0.18);
-
-  filter: drop-shadow(0 0 18px rgba(255,215,0,0.25));
+    0 0 20px rgba(212,175,55,0.15),
+    0 0 40px rgba(255,215,0,0.05);
 }
 
+/* ANIMACIÓN ORO */
 @keyframes shine {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* 💎 CATÁLOGO */
+/* =========================
+   💎 CATÁLOGO
+========================= */
 .productos {
-  padding: 80px 20px;
+  padding: 60px 15px;
   background: rgba(255,255,255,0.02);
   backdrop-filter: blur(12px);
-
   border-top: 1px solid rgba(212,175,55,0.15);
   border-bottom: 1px solid rgba(212,175,55,0.15);
 }
 
-/* 💎 TITULO CATÁLOGO PREMIUM */
+/* TITULO CATÁLOGO (MISMO EFECTO QUE HEADER) */
 .productos h2 {
   text-align: center;
-  margin-bottom: 50px;
-  font-size: 2.7rem;
+  margin-bottom: 35px;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-family: 'Playfair Display', serif;
-  letter-spacing: 6px;
 
-  background: linear-gradient(
-    90deg,
-    #7a5c12,
-    #ffd700,
-    #fff8dc,
-    #d4af37,
-    #7a5c12
-  );
-
+  background: linear-gradient(90deg,#b8860b,#fff,#d4af37,#fff);
   background-size: 300% 300%;
 
   -webkit-background-clip: text;
@@ -142,29 +84,47 @@ header::before {
 
   animation: shine 5s ease-in-out infinite;
 
-  text-shadow:
-    0 0 10px rgba(255,215,0,0.25),
-    0 0 25px rgba(212,175,55,0.15);
-
-  filter: drop-shadow(0 0 10px rgba(255,215,0,0.2));
+  letter-spacing: 4px;
 }
 
-/* GRID */
+/* =========================
+   📦 GRID RESPONSIVE
+========================= */
 .grid {
   max-width: 1100px;
   margin: auto;
+
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 35px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 25px;
+}
+
+/* =========================
+   📱 AJUSTE MÓVIL
+========================= */
+@media (max-width: 600px) {
+
+  header {
+    padding: 50px 15px 20px;
+  }
+
+  .productos {
+    padding: 40px 10px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 25px;
   font-size: 0.8rem;
   color: #888;
-  border-top: 1px solid rgba(212,175,55,0.2);
+  border-top: 1px solid rgba(212,175,55,0.15);
 }
 
 </style>
@@ -181,20 +141,37 @@ footer {
 
   <div class="grid">
 
-    <!-- Sube productos aqui  (producto1 -->
-
+    <!-- PRODUCTO 1 (NO TOCADO) -->
     <iframe srcdoc='
 <div style="max-width:240px;font-family:Arial;padding:10px;position:relative;background:#e5e5e5;border-radius:12px;">
-<img id="img" src="https://i.imgur.com/PFgZjzN.png" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
-<button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
-<button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
-<h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎Camiseta Diamon (Cachaba) 35€</h3>
-<p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002 </p>
-<select style="width:100%;margin-top:6px;"><option>🎨Color</option><option>Blanco</option><option>Negro</option></select>
-<select style="width:100%;margin-top:5px;"><option>🏷️Talla</option><option>S</option><option>M</option><option>L</option></select>
-<button style="width:100%;margin-top:8px;background:#3FBA5B;color:black;padding:8px;border:none;border-radius:8px;">💳 Comprar por Bizum</button>
-<p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
+
+  <img id="img" src="https://i.imgur.com/PFgZjzN.png"
+  style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+
+  <button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
+  <button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
+
+  <h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎Camiseta Diamon (Cachaba) 35€</h3>
+  <p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002 </p>
+
+  <select id="color" style="width:100%;margin-top:6px;">
+    <option>🎨Color</option>
+    <option>Blanco</option>
+    <option>Negro</option>
+  </select>
+
+  <select id="talla" style="width:100%;margin-top:5px;">
+     <option>🏷️Talla</option>
+    <option>S</option><option>M</option><option>L</option>
+  </select>
+
+  <button style="width:100%;margin-top:8px;background:#3FBA5B;color:black;padding:8px;border:none;border-radius:8px;">
+    💳 Comprar por Bizum
+  </button>
+
+  <p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
 </div>
+
 <script>
 var i=0;
 var imagenes=["https://i.imgur.com/Kb6WlCs.jpeg","https://i.imgur.com/1GStM7t.jpeg"];
@@ -202,20 +179,38 @@ function next(){i=(i+1)%imagenes.length;document.getElementById("img").src=image
 function prev(){i=(i-1+imagenes.length)%imagenes.length;document.getElementById("img").src=imagenes[i];}
 </script>
 ' style="width:100%;height:550px;border:none;"></iframe>
-    
- <!-- Sube productos aqui  (producto 2 -->
-        <iframe srcdoc='
+
+    <!-- PRODUCTO 2 -->
+    <iframe srcdoc='
 <div style="max-width:240px;font-family:Arial;padding:10px;position:relative;background:#e5e5e5;border-radius:12px;">
-<img id="img" src="https://i.imgur.com/PFgZjzN.png" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
-<button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
-<button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
-<h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎Camiseta Diamon (Cachaba) 35€</h3>
-<p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002 </p>
-<select style="width:100%;margin-top:6px;"><option>🎨Color</option><option>Blanco</option><option>Negro</option></select>
-<select style="width:100%;margin-top:5px;"><option>🏷️Talla</option><option>S</option><option>M</option><option>L</option></select>
-<button style="width:100%;margin-top:8px;background:#3FBA5B;color:black;padding:8px;border:none;border-radius:8px;">💳 Comprar por Bizum</button>
-<p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
+
+  <img id="img" src="https://i.imgur.com/PFgZjzN.png"
+  style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+
+  <button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
+  <button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
+
+  <h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎Camiseta Diamon (Cachaba) 35€</h3>
+  <p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002 </p>
+
+  <select id="color" style="width:100%;margin-top:6px;">
+    <option>🎨Color</option>
+    <option>Blanco</option>
+    <option>Negro</option>
+  </select>
+
+  <select id="talla" style="width:100%;margin-top:5px;">
+    <option>🏷️Talla</option>
+    <option>S</option><option>M</option><option>L</option>
+  </select>
+
+  <button style="width:100%;margin-top:8px;background:#3FBA5B;color:black;padding:8px;border:none;border-radius:8px;">
+    💳 Comprar por Bizum
+  </button>
+
+  <p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
 </div>
+
 <script>
 var i=0;
 var imagenes=["https://i.imgur.com/Kb6WlCs.jpeg","https://i.imgur.com/1GStM7t.jpeg"];
@@ -223,8 +218,6 @@ function next(){i=(i+1)%imagenes.length;document.getElementById("img").src=image
 function prev(){i=(i-1+imagenes.length)%imagenes.length;document.getElementById("img").src=imagenes[i];}
 </script>
 ' style="width:100%;height:550px;border:none;"></iframe>
-    
-  <!-- Sube productos aqui  (producto 2 -->
 
   </div>
 </section>
@@ -235,4 +228,3 @@ function prev(){i=(i-1+imagenes.length)%imagenes.length;document.getElementById(
 
 </body>
 </html>
-
