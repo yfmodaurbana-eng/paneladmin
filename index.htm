@@ -145,21 +145,26 @@ footer {
 <iframe srcdoc='
 <div style="max-width:240px;font-family:Arial;padding:10px;position:relative;background:#e5e5e5;border-radius:12px;">
 
-  <img id="img" src="https://i.imgur.com/PFgZjzN.png"
+  <!-- 📸 IMAGEN PRODUCTO -->
+  <img id="img" src="hhttps://i.imgur.com/rIrZch0.png"
   style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
 
+  <!-- ⬅️➡️ CARRUSEL -->
   <button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
   <button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
 
-  <h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎Camiseta Diamon (Cachaba) 35€</h3>
-  <p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002 </p>
+  <!-- 🏷️ INFO -->
+  <h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎 Camiseta Diamon (Cachaba) 35€</h3>
+  <p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002</p>
 
-  <select id="color" style="width:100%;margin-top:6px;">
+  <!-- 🎨 COLOR -->
+  <select id="color" onchange="cambiarColor()" style="width:100%;margin-top:6px;">
     <option value="">🎨 Color</option>
     <option value="Blanco">Blanco</option>
     <option value="Negro">Negro</option>
   </select>
 
+  <!-- 📏 TALLA -->
   <select id="talla" style="width:100%;margin-top:5px;">
     <option value="">🏷️ Talla</option>
     <option>S</option>
@@ -169,42 +174,78 @@ footer {
 
   <!-- 📦 ENVÍO -->
   <details style="margin-top:6px;font-size:11px;">
-    <summary style="font-weight:bold;color:#111;">📦🔥Dirección de envío(Importante)🔥</summary>
+    <summary style="font-weight:bold;color:#111;">📦🔥 Dirección de envío (Importante) 🔥</summary>
 
     <input id="nombre" placeholder="Nombre" style="width:100%;margin-top:5px;">
-    <input id="telefono" placeholder="📞Teléfono" style="width:100%;margin-top:5px;">
-    <input id="direccion" placeholder="📍Calle, portal, puerta" style="width:100%;margin-top:5px;">
+    <input id="telefono" placeholder="📞 Teléfono" style="width:100%;margin-top:5px;">
+    <input id="direccion" placeholder="📍 Calle, portal, puerta" style="width:100%;margin-top:5px;">
     <input id="ciudad" placeholder="Ciudad" style="width:100%;margin-top:5px;">
     <input id="cp" placeholder="Código Postal" style="width:100%;margin-top:5px;">
   </details>
 
+  <!-- 💳 BOTÓN -->
   <button onclick="enviar()"
   style="width:100%;margin-top:8px;background:#25D366;color:black;padding:10px;border:none;border-radius:8px;font-weight:bold;">
-    💳 Compra/Envio
+    💳 Compra / Envío
   </button>
 
-  <p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
+  <p style="font-size:12px;color:#333;margin:8px 0;">🚚 Envío gratuito a toda España</p>
 </div>
 
 <script>
 
-var i=0;
-var imagenes=[
-  "https://i.imgur.com/Kb6WlCs.jpeg",
-  "https://i.imgur.com/1GStM7t.jpeg"
+/*
+Cada imagen corresponde a un color:
+0 = Blanco
+1 = Negro
+*/
+
+var i = 0;
+
+var productos = [
+  {
+    color: "Blanco",
+    imagen: "https://i.imgur.com/Kb6WlCs.jpeg"
+  },
+  {
+    color: "Negro",
+    imagen: "https://i.imgur.com/irnnYka.jpeg"
+  }
 ];
 
-function next(){
-  i=(i+1)%imagenes.length;
-  document.getElementById("img").src=imagenes[i];
+/* 🔁 Actualizar imagen y select */
+function actualizarVista() {
+  document.getElementById("img").src = productos[i].imagen;
+  document.getElementById("color").value = productos[i].color;
 }
 
-function prev(){
-  i=(i-1+imagenes.length)%imagenes.length;
-  document.getElementById("img").src=imagenes[i];
+/* ➡️ Siguiente */
+function next() {
+  i = (i + 1) % productos.length;
+  actualizarVista();
 }
 
-function enviar(){
+/* ⬅️ Anterior */
+function prev() {
+  i = (i - 1 + productos.length) % productos.length;
+  actualizarVista();
+}
+
+/* 🎨 Si cambia color, cambia imagen */
+function cambiarColor() {
+  var colorSeleccionado = document.getElementById("color").value;
+
+  for (var x = 0; x < productos.length; x++) {
+    if (productos[x].color === colorSeleccionado) {
+      i = x;
+      actualizarVista();
+      break;
+    }
+  }
+}
+
+/* 📲 Enviar pedido WhatsApp */
+function enviar() {
 
   var color = document.getElementById("color").value;
   var talla = document.getElementById("talla").value;
@@ -232,8 +273,13 @@ function enviar(){
   window.open("https://wa.me/34607877328?text=" + mensaje);
 }
 
+/* Cargar inicial */
+actualizarVista();
+
 </script>
 ' style="width:100%;height:620px;border:none;"></iframe>
+     
+<!-- PRODUCTO 2 (NO TOCADO) -->
 
   </div>
 </section>
