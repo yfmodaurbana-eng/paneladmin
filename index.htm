@@ -9,128 +9,134 @@
 <style>
 
 /* =========================
-   🌑 FONDO PREMIUM LUJO
+   🌑 FONDO GLOBAL LUJO + LLUVIA NEON DIAMANTES
 ========================= */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: white;
-
-  background:
-    radial-gradient(circle at 20% 10%, rgba(212,175,55,0.12), transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 45%),
-    radial-gradient(circle at 50% 100%, rgba(212,175,55,0.08), transparent 55%),
-    linear-gradient(180deg, #000 0%, #050505 50%, #000 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #000 0%, #050505 50%, #000 100%);
 }
 
-/* =========================
-   💎 HEADER
-========================= */
+#glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 20%, rgba(255,215,0,0.10), transparent 55%),
+              radial-gradient(circle at 20% 80%, rgba(0,255,255,0.05), transparent 60%);
+  animation: ambientMove 12s ease-in-out infinite;
+}
+
+@keyframes ambientMove {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+#rain {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.diamond {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: radial-gradient(circle, #fff 0%, #bffcff 30%, #ffd700 55%, transparent 75%);
+  transform: rotate(45deg);
+  opacity: 0.9;
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.9),
+    0 0 14px rgba(0,255,255,0.7),
+    0 0 22px rgba(255,215,0,0.5);
+  animation: fall linear forwards, glow 1.5s ease-in-out infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(260deg); opacity: 0; }
+}
+
+@keyframes glow {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2); }
+  100% { filter: brightness(1); }
+}
+
+header, section, footer {
+  position: relative;
+  z-index: 2;
+}
+
 header {
   text-align: center;
   padding: 70px 20px 35px;
 }
 
-/* TITULO PRINCIPAL */
 .title-gold {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800;
   letter-spacing: 6px;
   font-family: 'Playfair Display', serif;
-
   background: linear-gradient(90deg,#7a5c12,#ffd700,#fff8dc,#d4af37,#8c6a12);
   background-size: 300% 300%;
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
   animation: shine 6s ease-in-out infinite;
-
-  text-shadow:
-    0 0 20px rgba(212,175,55,0.15),
-    0 0 40px rgba(255,215,0,0.05);
 }
 
-/* ANIMACIÓN ORO */
 @keyframes shine {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* =========================
-   💎 CATÁLOGO
-========================= */
 .productos {
   padding: 60px 15px;
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.35);
   border-top: 1px solid rgba(212,175,55,0.15);
   border-bottom: 1px solid rgba(212,175,55,0.15);
 }
 
-/* TITULO CATÁLOGO (MISMO EFECTO QUE HEADER) */
 .productos h2 {
   text-align: center;
   margin-bottom: 35px;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-family: 'Playfair Display', serif;
-
   background: linear-gradient(90deg,#b8860b,#fff,#d4af37,#fff);
-  background-size: 300% 300%;
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  animation: shine 5s ease-in-out infinite;
-
-  letter-spacing: 4px;
 }
 
-/* =========================
-   📦 GRID RESPONSIVE
-========================= */
 .grid {
   max-width: 1100px;
   margin: auto;
-
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 25px;
 }
 
-/* =========================
-   📱 AJUSTE MÓVIL
-========================= */
-@media (max-width: 600px) {
-
-  header {
-    padding: 50px 15px 20px;
-  }
-
-  .productos {
-    padding: 40px 10px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-}
-
-/* FOOTER */
 footer {
   text-align: center;
   padding: 25px;
   font-size: 0.8rem;
   color: #888;
-  border-top: 1px solid rgba(212,175,55,0.15);
 }
 
 </style>
 </head>
 
 <body>
+
+<div id="glow"></div>
+<div id="rain"></div>
 
 <header>
   <h1 class="title-gold">Black Diamond</h1>
@@ -141,156 +147,97 @@ footer {
 
   <div class="grid">
 
-    <!-- PRODUCTO 1 (NO TOCADO) -->
 <iframe srcdoc='
-<div style="max-width:240px;font-family:Arial;padding:10px;position:relative;background:#e5e5e5;border-radius:12px;">
+<div style="max-width:240px;font-family:Arial;padding:10px;position:relative;background:#171616;border-radius:12px;">
 
-  <!-- 📸 IMAGEN PRODUCTO -->
-  <img id="img" src="https://i.imgur.com/PFgZjzN.png"
-  style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+<img id="img" src="https://i.imgur.com/PFgZjzN.png" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
 
-  <!-- ⬅️➡️ CARRUSEL -->
-  <button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
-  <button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
+<button onclick="prev()" style="position:absolute;top:70px;left:5px;background:#3D3D3D;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
+<button onclick="next()" style="position:absolute;top:70px;right:5px;background:#3D3D3D;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
 
-  <!-- 🏷️ INFO -->
-  <h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎Camiseta Diamon (Cachaba) 35€</h3>
-  <p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002</p>
+<h3 style="margin:8px 0 2px;font-size:14px;color:#ABAA57;">💎Camiseta Diamon (Cachaba) 15€</h3>
+<p style="font-size:10px;color:#BABABA;margin:2px 0;">Ref: CD002</p>
 
-  <!-- 🎨 COLOR -->
-  <select id="color" onchange="cambiarColor()" style="width:100%;margin-top:6px;">
-    <option value="" selected>🎨 Color</option>
-    <option value="Blanco">Blanco</option>
-    <option value="Negro">Negro</option>
-  </select>
+<select id="color" onchange="cambiarColor()" style="width:100%;margin-top:6px;">
+<option value="" selected>🎨 Color</option>
+<option value="Blanco">Blanco</option>
+<option value="Negro">Negro</option>
+</select>
 
-  <!-- 📏 TALLA -->
-  <select id="talla" style="width:100%;margin-top:5px;">
-    <option value="" selected>🏷️ Talla</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-  </select>
+<select id="talla" style="width:100%;margin-top:5px;">
+<option value="" selected>🏷️ Talla</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+</select>
 
-  <!-- 📦 ENVÍO -->
-  <details style="margin-top:6px;font-size:11px;">
-    <summary style="font-weight:bold;color:#111;">📦🔥Dirección de envío(Importante)🔥</summary>
+<details style="color:#FFFFFF;margin-top:6px;font-size:11px;">
+<summary style="font-weight:bold;">📦 Dirección envío (Importante)</summary>
+<input id="nombre" placeholder="Nombre" style="width:100%;margin-top:5px;">
+<input id="telefono" placeholder="Teléfono" style="width:100%;margin-top:5px;">
+<input id="direccion" placeholder="Dirección" style="width:100%;margin-top:5px;">
+<input id="ciudad" placeholder="Ciudad" style="width:100%;margin-top:5px;">
+<input id="cp" placeholder="CP" style="width:100%;margin-top:5px;">
+</details>
 
-    <input id="nombre" placeholder="Nombre" style="width:100%;margin-top:5px;">
-    <input id="telefono" placeholder="📞Teléfono" style="width:100%;margin-top:5px;">
-    <input id="direccion" placeholder="📍Calle, portal, puerta" style="width:100%;margin-top:5px;">
-    <input id="ciudad" placeholder="Ciudad" style="width:100%;margin-top:5px;">
-    <input id="cp" placeholder="Código Postal" style="width:100%;margin-top:5px;">
-  </details>
+<button onclick="enviar()" style="width:100%;margin-top:8px;background:#ABAA57;color:black;padding:10px;border:none;border-radius:8px;font-weight:bold;">💳 Compra</button>
 
-  <!-- 💳 BOTÓN -->
-  <button onclick="enviar()"
-  style="width:100%;margin-top:8px;background:#25D366;color:black;padding:10px;border:none;border-radius:8px;font-weight:bold;">
-    💳 Compra/Envio
-  </button>
-
-  <p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
 </div>
 
 <script>
-
-/*
-0 = Blanco
-1 = Negro
-*/
-
-var i = 0;
-
-var productos = [
-  {
-    color: "Blanco",
-    imagen: "https://i.imgur.com/Kb6WlCs.jpeg"
-  },
-  {
-    color: "Negro",
-    imagen: "https://i.imgur.com/9HTKOzH.jpeg"
-  }
+var i=0;
+var productos=[
+{color:"Blanco",imagen:"https://i.imgur.com/Kb6WlCs.jpeg"},
+{color:"Negro",imagen:"https://i.imgur.com/9HTKOzH.jpeg"}
 ];
 
-/* 🔁 Solo actualiza imagen */
-function actualizarImagen() {
-  document.getElementById("img").src = productos[i].imagen;
+function actualizarImagen(){document.getElementById("img").src=productos[i].imagen;}
+function next(){i=(i+1)%productos.length;actualizarImagen();document.getElementById("color").value=productos[i].color;}
+function prev(){i=(i-1+productos.length)%productos.length;actualizarImagen();document.getElementById("color").value=productos[i].color;}
+function cambiarColor(){var c=document.getElementById("color").value;for(var x=0;x<productos.length;x++){if(productos[x].color===c){i=x;actualizarImagen();break;}}}
+function enviar(){
+var color=document.getElementById("color").value;
+var talla=document.getElementById("talla").value;
+var nombre=document.getElementById("nombre").value;
+var telefono=document.getElementById("telefono").value;
+var direccion=document.getElementById("direccion").value;
+var ciudad=document.getElementById("ciudad").value;
+var cp=document.getElementById("cp").value;
+
+var mensaje="🛍️ NUEVO PEDIDO%0A%0A"+
+"Producto: Camiseta Diamon%0A"+
+"Referencia: CD002%0A%0A"+
+"Color: "+color+"%0A"+
+"Talla: "+talla+"%0A%0A"+
+"Nombre: "+nombre+"%0A"+
+"Teléfono: "+telefono+"%0A"+
+"Dirección: "+direccion+"%0A"+
+"Ciudad: "+ciudad+"%0A"+
+"CP: "+cp;
+
+window.open("https://wa.me/34607877328?text="+mensaje);
 }
 
-/* ➡️ Siguiente */
-function next() {
-  i = (i + 1) % productos.length;
-  actualizarImagen();
-
-  /* cambiar color automáticamente */
-  document.getElementById("color").value = productos[i].color;
-}
-
-/* ⬅️ Anterior */
-function prev() {
-  i = (i - 1 + productos.length) % productos.length;
-  actualizarImagen();
-
-  /* cambiar color automáticamente */
-  document.getElementById("color").value = productos[i].color;
-}
-
-/* 🎨 Si cambia color → cambia imagen */
-function cambiarColor() {
-  var colorSeleccionado = document.getElementById("color").value;
-
-  for (var x = 0; x < productos.length; x++) {
-    if (productos[x].color === colorSeleccionado) {
-      i = x;
-      actualizarImagen();
-      break;
-    }
-  }
-}
-
-/* 📲 Enviar pedido */
-function enviar() {
-
-  var color = document.getElementById("color").value;
-  var talla = document.getElementById("talla").value;
-  var nombre = document.getElementById("nombre").value;
-  var telefono = document.getElementById("telefono").value;
-  var direccion = document.getElementById("direccion").value;
-  var ciudad = document.getElementById("ciudad").value;
-  var cp = document.getElementById("cp").value;
-
-  var producto = "Camiseta Diamon (Cachaba)";
-  var ref = "CD002";
-
-  var mensaje =
-  "🛍️ NUEVO PEDIDO%0A%0A" +
-  "Producto: " + producto + "%0A" +
-  "Referencia: " + ref + "%0A%0A" +
-  "Color: " + color + "%0A" +
-  "Talla: " + talla + "%0A%0A" +
-  "Nombre: " + nombre + "%0A" +
-  "Teléfono: " + telefono + "%0A" +
-  "Dirección: " + direccion + "%0A" +
-  "Ciudad: " + ciudad + "%0A" +
-  "CP: " + cp;
-
-  window.open("https://wa.me/34607877328?text=" + mensaje);
-}
-
-/* imagen inicial */
 actualizarImagen();
-
 </script>
 ' style="width:100%;height:620px;border:none;"></iframe>
-     
-<!-- PRODUCTO 2 (NO TOCADO) -->
 
   </div>
 </section>
 
-<footer>
-  © 2026 Black Diamond
-</footer>
+<footer>© 2026 Black Diamond</footer>
 
-</body>
-</html>
+<script>
+function createDiamond(){
+  const d=document.createElement("div");
+  d.className="diamond";
+  d.style.left=Math.random()*100+"vw";
+  d.style.animationDuration=(2+Math.random()*4)+"s";
+  document.getElementById("rain").appendChild(d);
+  setTimeout(()=>d.remove(),7000);
+}
+setInterval(createDiamond,60);
+</script>
+
+</body
+  
