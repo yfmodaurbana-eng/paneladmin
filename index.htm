@@ -142,7 +142,7 @@ footer {
   <div class="grid">
 
     <!-- PRODUCTO 1 (NO TOCADO) -->
-    <iframe srcdoc='
+<iframe srcdoc='
 <div style="max-width:240px;font-family:Arial;padding:10px;position:relative;background:#e5e5e5;border-radius:12px;">
 
   <img id="img" src="https://i.imgur.com/PFgZjzN.png"
@@ -155,67 +155,69 @@ footer {
   <p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002 </p>
 
   <select id="color" style="width:100%;margin-top:6px;">
-    <option>🎨Color</option>
-    <option>Blanco</option>
-    <option>Negro</option>
+    <option value="">🎨 Color</option>
+    <option value="Blanco">Blanco</option>
+    <option value="Negro">Negro</option>
   </select>
 
   <select id="talla" style="width:100%;margin-top:5px;">
-     <option>🏷️Talla</option>
-    <option>S</option><option>M</option><option>L</option>
+    <option value="">🏷️ Talla</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
   </select>
 
-  <button style="width:100%;margin-top:8px;background:#3FBA5B;color:black;padding:8px;border:none;border-radius:8px;">
-    💳 Comprar por Bizum
+  <input id="nombre" placeholder="Nombre" style="width:100%;margin-top:6px;">
+  <input id="telefono" placeholder="Teléfono" style="width:100%;margin-top:5px;">
+
+  <button onclick="enviar()"
+  style="width:100%;margin-top:8px;background:#25D366;color:black;padding:10px;border:none;border-radius:8px;font-weight:bold;">
+    💳 ENVIAR PEDIDO POR WHATSAPP
   </button>
 
   <p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
 </div>
 
 <script>
+
 var i=0;
-var imagenes=["https://i.imgur.com/Kb6WlCs.jpeg","https://i.imgur.com/1GStM7t.jpeg"];
-function next(){i=(i+1)%imagenes.length;document.getElementById("img").src=imagenes[i];}
-function prev(){i=(i-1+imagenes.length)%imagenes.length;document.getElementById("img").src=imagenes[i];}
-</script>
-' style="width:100%;height:550px;border:none;"></iframe>
+var imagenes=[
+  "https://i.imgur.com/Kb6WlCs.jpeg",
+  "https://i.imgur.com/1GStM7t.jpeg"
+];
 
-    <!-- PRODUCTO 2 -->
-    <iframe srcdoc='
-<div style="max-width:240px;font-family:Arial;padding:10px;position:relative;background:#e5e5e5;border-radius:12px;">
+function next(){
+  i=(i+1)%imagenes.length;
+  document.getElementById("img").src=imagenes[i];
+}
 
-  <img id="img" src="https://i.imgur.com/PFgZjzN.png"
-  style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+function prev(){
+  i=(i-1+imagenes.length)%imagenes.length;
+  document.getElementById("img").src=imagenes[i];
+}
 
-  <button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
-  <button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
+function enviar(){
 
-  <h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎Camiseta Diamon (Cachaba) 35€</h3>
-  <p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002 </p>
+  var color = document.getElementById("color").value;
+  var talla = document.getElementById("talla").value;
+  var nombre = document.getElementById("nombre").value;
+  var telefono = document.getElementById("telefono").value;
 
-  <select id="color" style="width:100%;margin-top:6px;">
-    <option>🎨Color</option>
-    <option>Blanco</option>
-    <option>Negro</option>
-  </select>
+  var producto = "Camiseta Diamon (Cachaba)";
+  var ref = "CD002";
 
-  <select id="talla" style="width:100%;margin-top:5px;">
-    <option>🏷️Talla</option>
-    <option>S</option><option>M</option><option>L</option>
-  </select>
+  var mensaje =
+  "🛍️ NUEVO PEDIDO%0A%0A" +
+  "Producto: " + producto + "%0A" +
+  "Referencia: " + ref + "%0A%0A" +
+  "Color: " + color + "%0A" +
+  "Talla: " + talla + "%0A%0A" +
+  "Nombre: " + nombre + "%0A" +
+  "Teléfono: " + telefono;
 
-  <button style="width:100%;margin-top:8px;background:#3FBA5B;color:black;padding:8px;border:none;border-radius:8px;">
-    💳 Comprar por Bizum
-  </button>
+  window.open("https://wa.me/34607877328?text=" + mensaje);
+}
 
-  <p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
-</div>
-
-<script>
-var i=0;
-var imagenes=["https://i.imgur.com/Kb6WlCs.jpeg","https://i.imgur.com/1GStM7t.jpeg"];
-function next(){i=(i+1)%imagenes.length;document.getElementById("img").src=imagenes[i];}
-function prev(){i=(i-1+imagenes.length)%imagenes.length;document.getElementById("img").src=imagenes[i];}
 </script>
 ' style="width:100%;height:550px;border:none;"></iframe>
 
