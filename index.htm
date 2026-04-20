@@ -133,7 +133,7 @@ footer {
 
     <!-- PRODUCTO 1 -->
 <iframe srcdoc='
-<div style="max-width:240px;font-family:Arial;padding:10px;position:relative;">
+<div style="max-width:240px;font-family:Arial;padding:10px;position:relative;background:#e5e5e5;border-radius:12px;">
 
   <!-- 📸 IMAGEN -->
   <img id="img" src="https://i.imgur.com/PFgZjzN.png"
@@ -145,10 +145,10 @@ footer {
   <button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
 
   <!-- 🏷️ INFO -->
-  <h3 style="color:#BABABA;margin:8px 0 2px;font-size:14px;">💎Camiseta Diamon (Cachaba) 35€</h3>
+  <h3 style="margin:8px 0 2px;font-size:14px;color:#111;">💎Camiseta Diamon (Cachaba) 35€</h3>
 
   <!-- 🔴 REFERENCIA -->
-  <p style="font-size:10px;color:#BABABA;margin:2px 0;">Ref: CD002 </p>
+  <p style="font-size:10px;color:#333;margin:2px 0;">Ref: CD002 </p>
 
   <!-- 🎨 COLOR -->
   <select id="color" onchange="cambiarColor()" style="width:100%;margin-top:6px;">
@@ -166,8 +166,8 @@ footer {
   </select>
 
   <!-- 📦 ENVÍO -->
-  <details style="color:#BABABA;margin-top:6px;font-size:11px;">
-    <summary style="font-weight:bold;">📦🔥Dirección de envío (Importante)🔥</summary>
+  <details style="margin-top:6px;font-size:11px;">
+    <summary style="font-weight:bold;color:#111;">📦🔥Dirección de envío (Importante)🔥</summary>
 
     <input id="nombre" placeholder="Nombre" style="width:100%;margin-top:5px;">
     <input id="telefono" placeholder="📞Teléfono" style="width:100%;margin-top:5px;">
@@ -178,33 +178,25 @@ footer {
 
   <!-- 🟢 BOTÓN -->
   <button onclick="enviar()"
-  style="width:100%;margin-top:8px;background:#3FBA5B
-;color:black;padding:8px;border:none;border-radius:8px;">💳
-    Comprar por Bizum
+  style="width:100%;margin-top:8px;background:#3FBA5B;color:black;padding:8px;border:none;border-radius:8px;">
+    💳 Comprar por Bizum
   </button>
 
   <!-- 🚚 ENVÍO -->
-  <p style="font-size:12px;color:#BABABA;margin:8px 0;">🚚Envío gratuito a toda España</p>
+  <p style="font-size:12px;color:#333;margin:8px 0;">🚚Envío gratuito a toda España</p>
 
 </div>
 
 <script>
 
-// 🔴 IMÁGENES
 var imagenes = [
   "https://i.imgur.com/Kb6WlCs.jpeg",
   "https://i.imgur.com/1GStM7t.jpeg"
 ];
 
-// 🔴 COLORES EN ORDEN
 var colores = ["Blanco","Negro"];
-
-// 🔴 REFERENCIA
 var referencia = "";
-
-// 🔴 NOMBRE DEL PRODUCTO
 var producto = "Camiseta Diamon (Cachaba)";
-
 var i = 0;
 
 function cambiarColor(){
@@ -227,9 +219,7 @@ function cambiarColor(){
 
 function next(){
   i++;
-  if(i >= imagenes.length){
-    i = 0;
-  }
+  if(i >= imagenes.length){ i = 0; }
 
   document.getElementById("img").src = imagenes[i];
   document.getElementById("color").value = colores[i];
@@ -237,9 +227,7 @@ function next(){
 
 function prev(){
   i--;
-  if(i < 0){
-    i = imagenes.length - 1;
-  }
+  if(i < 0){ i = imagenes.length - 1; }
 
   document.getElementById("img").src = imagenes[i];
   document.getElementById("color").value = colores[i];
