@@ -132,6 +132,302 @@ footer {
   <div class="grid">
 
     <!-- PRODUCTO 1 -->
+ <iframe srcdoc='
+<div style="max-width:240px;font-family:Arial;padding:10px;position:relative;">
+
+  <!-- 📸 IMAGEN -->
+  <img id="img" src="https://i.imgur.com/PFgZjzN.png"
+  style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+
+  <!-- 🔘 FLECHAS -->
+  <button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
+
+  <button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
+
+  <!-- 🏷️ INFO -->
+  <h3 style="margin:8px 0 2px;font-size:14px;">💎Camiseta Diamon (Cachaba) 35€</h3>
+
+  <!-- 🔴 REFERENCIA -->
+  <p style="font-size:10px;color:#000000;margin:2px 0;">Ref: CD002 </p>
+
+  <!-- 🎨 COLOR -->
+  <select id="color" onchange="cambiarColor()" style="width:100%;margin-top:6px;">
+    <option value="">🎨Color</option>
+    <option value="Blanco">Blanco</option>
+    <option value="Negro">Negro</option>
+  </select>
+
+  <!-- 🔘 TALLA -->
+  <select id="talla" style="width:100%;margin-top:5px;">
+    <option value="">🏷️Talla</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+  </select>
+
+  <!-- 📦 ENVÍO -->
+  <details style="margin-top:6px;font-size:11px;">
+    <summary style="font-weight:bold;">📦🔥Dirección de envío (Importante)🔥</summary>
+
+    <input id="nombre" placeholder="Nombre" style="width:100%;margin-top:5px;">
+    <input id="telefono" placeholder="📞Teléfono" style="width:100%;margin-top:5px;">
+    <input id="direccion" placeholder="📍Calle, portal, puerta" style="width:100%;margin-top:5px;">
+    <input id="ciudad" placeholder="Ciudad" style="width:100%;margin-top:5px;">
+    <input id="cp" placeholder="Código Postal" style="width:100%;margin-top:5px;">
+  </details>
+
+  <!-- 🟢 BOTÓN -->
+  <button onclick="enviar()"
+  style="width:100%;margin-top:8px;background:#3FBA5B
+;color:black;padding:8px;border:none;border-radius:8px;">💳
+    Comprar por Bizum
+  </button>
+
+  <!-- 🚚 ENVÍO -->
+  <p style="font-size:12px;color:#000000;margin:8px 0;">🚚Envío gratuito a toda España</p>
+
+</div>
+
+<script>
+
+// 🔴 IMÁGENES
+var imagenes = [
+  "https://i.imgur.com/Kb6WlCs.jpeg",
+  "https://i.imgur.com/1GStM7t.jpeg"
+];
+
+// 🔴 COLORES EN ORDEN
+var colores = ["Blanco","Negro"];
+
+// 🔴 REFERENCIA
+var referencia = "";
+
+// 🔴 NOMBRE DEL PRODUCTO
+var producto = "Camiseta Diamon (Cachaba)";
+
+var i = 0;
+
+function cambiarColor(){
+
+  var colorSeleccionado =
+  document.getElementById("color").value;
+
+  if(colorSeleccionado == "Blanco"){
+    document.getElementById("img").src =
+    "https://i.imgur.com/Kb6WlCs.jpeg";
+    i = 0;
+  }
+
+  if(colorSeleccionado == "Negro"){
+    document.getElementById("img").src =
+    "https://i.imgur.com/I1dAXjw.jpeg";
+    i = 1;
+  }
+}
+
+function next(){
+  i++;
+  if(i >= imagenes.length){
+    i = 0;
+  }
+
+  document.getElementById("img").src = imagenes[i];
+  document.getElementById("color").value = colores[i];
+}
+
+function prev(){
+  i--;
+  if(i < 0){
+    i = imagenes.length - 1;
+  }
+
+  document.getElementById("img").src = imagenes[i];
+  document.getElementById("color").value = colores[i];
+}
+
+function enviar(){
+
+  var color = document.getElementById("color").value;
+  var talla = document.getElementById("talla").value;
+  var nombre = document.getElementById("nombre").value;
+  var telefono = document.getElementById("telefono").value;
+  var direccion = document.getElementById("direccion").value;
+  var ciudad = document.getElementById("ciudad").value;
+  var cp = document.getElementById("cp").value;
+
+  var msg =
+  "🛍️ PEDIDO%0A%0A" +
+  "Producto: " + producto + "%0A" +
+  "Referencia: " + referencia + "%0A%0A" +
+  "Color: " + color + "%0A" +
+  "Talla: " + talla + "%0A%0A" +
+  "--- ENVÍO ---%0A" +
+  "Nombre: " + nombre + "%0A" +
+  "Teléfono: " + telefono + "%0A" +
+  "Dirección: " + direccion + "%0A" +
+  "Ciudad: " + ciudad + "%0A" +
+  "CP: " + cp;
+
+  window.open("https://wa.me/34607877328?text=" + msg);
+}
+
+</script>
+' style="width:100%;height:550px;border:none;"></iframe>
+
+    <!-- PRODUCTO 2 -->
+   <iframe srcdoc='
+<div style="max-width:240px;font-family:Arial;padding:10px;position:relative;">
+
+  <!-- 📸 IMAGEN -->
+  <img id="img" src="https://i.imgur.com/PFgZjzN.png"
+  style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+
+  <!-- 🔘 FLECHAS -->
+  <button onclick="prev()" style="position:absolute;top:70px;left:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">‹</button>
+
+  <button onclick="next()" style="position:absolute;top:70px;right:5px;background:black;color:white;border:none;border-radius:50%;width:25px;height:25px;">›</button>
+
+  <!-- 🏷️ INFO -->
+  <h3 style="margin:8px 0 2px;font-size:14px;">💎Camiseta Diamon (Cachaba) 35€</h3>
+
+  <!-- 🔴 REFERENCIA -->
+  <p style="font-size:10px;color:#000000;margin:2px 0;">Ref: CD002 </p>
+
+  <!-- 🎨 COLOR -->
+  <select id="color" onchange="cambiarColor()" style="width:100%;margin-top:6px;">
+    <option value="">🎨Color</option>
+    <option value="Blanco">Blanco</option>
+    <option value="Negro">Negro</option>
+  </select>
+
+  <!-- 🔘 TALLA -->
+  <select id="talla" style="width:100%;margin-top:5px;">
+    <option value="">🏷️Talla</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+  </select>
+
+  <!-- 📦 ENVÍO -->
+  <details style="margin-top:6px;font-size:11px;">
+    <summary style="font-weight:bold;">📦🔥Dirección de envío (Importante)🔥</summary>
+
+    <input id="nombre" placeholder="Nombre" style="width:100%;margin-top:5px;">
+    <input id="telefono" placeholder="📞Teléfono" style="width:100%;margin-top:5px;">
+    <input id="direccion" placeholder="📍Calle, portal, puerta" style="width:100%;margin-top:5px;">
+    <input id="ciudad" placeholder="Ciudad" style="width:100%;margin-top:5px;">
+    <input id="cp" placeholder="Código Postal" style="width:100%;margin-top:5px;">
+  </details>
+
+  <!-- 🟢 BOTÓN -->
+  <button onclick="enviar()"
+  style="width:100%;margin-top:8px;background:#3FBA5B
+;color:black;padding:8px;border:none;border-radius:8px;">💳
+    Comprar por Bizum
+  </button>
+
+  <!-- 🚚 ENVÍO -->
+  <p style="font-size:12px;color:#000000;margin:8px 0;">🚚Envío gratuito a toda España</p>
+
+</div>
+
+<script>
+
+// 🔴 IMÁGENES
+var imagenes = [
+  "https://i.imgur.com/Kb6WlCs.jpeg",
+  "https://i.imgur.com/1GStM7t.jpeg"
+];
+
+// 🔴 COLORES EN ORDEN
+var colores = ["Blanco","Negro"];
+
+// 🔴 REFERENCIA
+var referencia = "";
+
+// 🔴 NOMBRE DEL PRODUCTO
+var producto = "Camiseta Diamon (Cachaba)";
+
+var i = 0;
+
+function cambiarColor(){
+
+  var colorSeleccionado =
+  document.getElementById("color").value;
+
+  if(colorSeleccionado == "Blanco"){
+    document.getElementById("img").src =
+    "https://i.imgur.com/Kb6WlCs.jpeg";
+    i = 0;
+  }
+
+  if(colorSeleccionado == "Negro"){
+    document.getElementById("img").src =
+    "https://i.imgur.com/I1dAXjw.jpeg";
+    i = 1;
+  }
+}
+
+function next(){
+  i++;
+  if(i >= imagenes.length){
+    i = 0;
+  }
+
+  document.getElementById("img").src = imagenes[i];
+  document.getElementById("color").value = colores[i];
+}
+
+function prev(){
+  i--;
+  if(i < 0){
+    i = imagenes.length - 1;
+  }
+
+  document.getElementById("img").src = imagenes[i];
+  document.getElementById("color").value = colores[i];
+}
+
+function enviar(){
+
+  var color = document.getElementById("color").value;
+  var talla = document.getElementById("talla").value;
+  var nombre = document.getElementById("nombre").value;
+  var telefono = document.getElementById("telefono").value;
+  var direccion = document.getElementById("direccion").value;
+  var ciudad = document.getElementById("ciudad").value;
+  var cp = document.getElementById("cp").value;
+
+  var msg =
+  "🛍️ PEDIDO%0A%0A" +
+  "Producto: " + producto + "%0A" +
+  "Referencia: " + referencia + "%0A%0A" +
+  "Color: " + color + "%0A" +
+  "Talla: " + talla + "%0A%0A" +
+  "--- ENVÍO ---%0A" +
+  "Nombre: " + nombre + "%0A" +
+  "Teléfono: " + telefono + "%0A" +
+  "Dirección: " + direccion + "%0A" +
+  "Ciudad: " + ciudad + "%0A" +
+  "CP: " + cp;
+
+  window.open("https://wa.me/34607877328?text=" + msg);
+}
+
+</script>
+' style="width:100%;height:550px;border:none;"></iframe>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Black Diamond
+</footer>
+
+</body>
+</html>
+
+    <!-- PRODUCTO 1 -->
     <div class="card">
       <img src="https://i.imgur.com/Kb6WlCs.jpeg">
 
